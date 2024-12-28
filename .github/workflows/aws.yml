@@ -58,4 +58,3 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: auth-service
           cluster: dev-cluster
-          wait-for-service-stability: true
