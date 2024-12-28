@@ -56,5 +56,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: auth-service
+          service: spring-boot-eks
           cluster: dev-cluster
