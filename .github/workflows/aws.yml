@@ -49,12 +49,12 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: user-service-task.json
+          task-definition: task.json
           container-name: spring-web-app
           image: ${{ steps.build-image.outputs.image }}
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: service-brinks
+          service: service-test-2
           cluster: dev-cluster
