@@ -37,7 +37,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-          REPOSITORY: springboot-app
+          REPOSITORY: spring-boot-eks-repo
         run: |
             # Build a docker container and
             # push it to ECR so that it can
@@ -56,5 +56,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: spring-boot-eks
+          service: service-test-2
           cluster: dev-cluster
