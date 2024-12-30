@@ -1,44 +1,41 @@
 {
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:851725302967:task-definition/spring-boot-eks-TD:2",
     "containerDefinitions": [
         {
-            "name": "spring-web-app",
-            "image": "851725302967.dkr.ecr.us-east-1.amazonaws.com/spring-boot-eks-repo:45403f6716506d075c2381e31bcedc8d64136e45",
+            "name": "web-app",
+            "image": "851725302967.dkr.ecr.us-east-1.amazonaws.com/spring-boot-eks-repo:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "spring-web-app-8080-tcp",
+                    "name": "web-app-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "spring-web-app-80-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/spring-boot-eks-task",
+                    "awslogs-group": "/ecs/spring-boot-eks-TD",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
-    "family": "spring-boot-eks-task",
+    "family": "spring-boot-eks-TD",
     "taskRoleArn": "arn:aws:iam::851725302967:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::851725302967:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
