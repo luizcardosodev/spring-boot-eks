@@ -1,41 +1,25 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:851725302967:task-definition/spring-boot-eks-TD:2",
     "containerDefinitions": [
         {
-            "name": "web-app",
+            "name": "spring-boot-eks-container",
             "image": "851725302967.dkr.ecr.us-east-1.amazonaws.com/spring-boot-eks-repo:latest",
-            "cpu": 0,
+            "cpu": 1024,
+            "memory": 2048,
             "portMappings": [
                 {
-                    "name": "web-app-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/spring-boot-eks-TD",
-                    "mode": "non-blocking",
-                    "awslogs-create-group": "true",
-                    "max-buffer-size": "25m",
-                    "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            },
             "systemControls": []
         }
     ],
-    "family": "spring-boot-eks-TD",
+    "family": "spring-boot-eks-task-df",
     "taskRoleArn": "arn:aws:iam::851725302967:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::851725302967:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
@@ -46,9 +30,5 @@
     ],
     "cpu": "1024",
     "memory": "2048",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
     "tags": []
 }
